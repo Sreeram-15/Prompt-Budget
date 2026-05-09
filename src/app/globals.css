@@ -189,6 +189,18 @@ select {
   width: 100%;
 }
 
+input[type="checkbox"] {
+  min-height: auto;
+  width: auto;
+}
+
+.checkbox-line {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  gap: 10px;
+}
+
 button {
   cursor: pointer;
   font: inherit;

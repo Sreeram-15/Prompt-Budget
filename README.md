@@ -38,6 +38,8 @@ To deploy, create the Vercel project, add the environment variables from `.env.e
 
 The app runs locally without external keys using in-memory storage and a templated summary. Production should use Supabase and Resend.
 
+Run `supabase-schema.sql` before using production lead capture. The lead table stores `consultation_requested` separately from public audit data.
+
 ## Submission Notes
 
 Before submitting the Google Form, replace the screenshot placeholders, add the deployed Vercel URL, fill `USER_INTERVIEWS.md` with three real conversations, and continue honest commits across at least five distinct calendar days.

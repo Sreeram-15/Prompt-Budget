@@ -68,5 +68,6 @@ export type LeadInput = {
   companyName?: string;
   role?: string;
   teamSize?: number;
+  consultationRequested?: boolean;
   website?: string;
 };

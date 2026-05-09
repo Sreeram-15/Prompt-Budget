@@ -9,6 +9,7 @@ export default function ResultsView({ audit, publicMode = false }: { audit: Audi
   const [companyName, setCompanyName] = useState("");
   const [role, setRole] = useState("");
   const [website, setWebsite] = useState("");
+  const [consultationRequested, setConsultationRequested] = useState(audit.credexQualified);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +27,7 @@ export default function ResultsView({ audit, publicMode = false }: { audit: Audi
         companyName,
         role,
         teamSize: audit.input.teamSize,
+        consultationRequested,
         website
       });
       setMessage("Report saved. Check your email for the confirmation.");
@@ -63,11 +65,11 @@ export default function ResultsView({ audit, publicMode = false }: { audit: Audi
           <article className="result-row" key={result.id}>
             <div>
               <strong>{result.tool}</strong>
-              <span>{result.plan} · {result.recommendedAction}</span>
+              <span>{result.plan} / {result.recommendedAction}</span>
             </div>
             <div className="money-line">
               <span>${result.currentSpend.toLocaleString()}</span>
-              <span>→</span>
+              <span>to</span>
               <span>${result.recommendedSpend.toLocaleString()}</span>
             </div>
             <p>{result.reason}</p>
@@ -97,6 +99,16 @@ export default function ResultsView({ audit, publicMode = false }: { audit: Audi
               <input value={role} onChange={(event) => setRole(event.target.value)} />
             </label>
           </div>
+          {audit.credexQualified ? (
+            <label className="checkbox-line">
+              <input
+                type="checkbox"
+                checked={consultationRequested}
+                onChange={(event) => setConsultationRequested(event.target.checked)}
+              />
+              Ask Credex to follow up about discounted AI credits
+            </label>
+          ) : null}
           <button className="primary-button" type="submit" disabled={loading || !audit.id}>{loading ? "Saving..." : "Email me the report"}</button>
           {shareUrl ? <a className="secondary-link" href={shareUrl}>Open public report</a> : null}
           {message ? <p className="status-message">{message}</p> : null}

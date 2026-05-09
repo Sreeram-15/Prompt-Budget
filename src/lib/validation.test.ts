@@ -15,9 +15,11 @@ describe("parseLeadInput", () => {
     const lead = parseLeadInput({
       auditId: "audit",
       email: "Founder@Example.com",
-      companyName: "Example AI"
+      companyName: "Example AI",
+      consultationRequested: true
     });
 
     assert.equal(lead.email, "founder@example.com");
+    assert.equal(lead.consultationRequested, true);
   });
 });

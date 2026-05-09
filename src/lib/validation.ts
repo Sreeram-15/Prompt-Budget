@@ -27,7 +27,8 @@ export function parseLeadInput(value: unknown): LeadInput {
     email: body.email.trim().toLowerCase(),
     companyName: cleanOptional(body.companyName),
     role: cleanOptional(body.role),
-    teamSize: body.teamSize ? positiveNumber(body.teamSize, "team size") : undefined
+    teamSize: body.teamSize ? positiveNumber(body.teamSize, "team size") : undefined,
+    consultationRequested: Boolean(body.consultationRequested)
   };
 }
 

@@ -5,7 +5,7 @@ export async function sendLeadEmail(lead: LeadInput, audit: AuditResult | null):
   if (!process.env.RESEND_API_KEY) return;
 
   const savings = audit ? `$${audit.totalMonthlySavings.toLocaleString()}/mo` : "your audit";
-  const consultLine = audit?.credexQualified
+  const consultLine = audit?.credexQualified || lead.consultationRequested
     ? "Your audit shows a material savings opportunity, so Credex may reach out about discounted AI infrastructure credits."
     : "Your audit is saved. We will notify you when new optimizations apply to your stack.";
 

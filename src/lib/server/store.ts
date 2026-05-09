@@ -56,7 +56,8 @@ export async function saveLead(lead: LeadInput): Promise<void> {
         email: lead.email,
         company_name: lead.companyName ?? null,
         role: lead.role ?? null,
-        team_size: lead.teamSize ?? null
+        team_size: lead.teamSize ?? null,
+        consultation_requested: Boolean(lead.consultationRequested)
       }),
       headers: { Prefer: "return=minimal" }
     });

@@ -17,7 +17,8 @@ create table if not exists leads (
   email text not null,
   company_name text,
   role text,
-  team_size integer
+  team_size integer,
+  consultation_requested boolean not null default false
 );
 
 create table if not exists rate_limits (

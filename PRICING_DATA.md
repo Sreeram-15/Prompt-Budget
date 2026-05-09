@@ -1,6 +1,6 @@
 # Pricing Data
 
-Verified date: 2026-05-09. Re-check these URLs during the final submission week before submitting.
+Verified date: 2026-05-09. Re-check these URLs during the final submission week before submitting because vendor pricing changes frequently.
 
 ## Cursor
 - Hobby: $0/month - https://cursor.com/pricing - verified 2026-05-09
@@ -16,20 +16,20 @@ Verified date: 2026-05-09. Re-check these URLs during the final submission week 
 ## Claude
 - Free: $0/month - https://www.anthropic.com/pricing - verified 2026-05-09
 - Pro: $20/monthly or $17/month annualized - https://www.anthropic.com/pricing - verified 2026-05-09
-- Max: $100/month assumption for audit config; verify before submission - https://www.anthropic.com/pricing - verified 2026-05-09
-- Team: $30/user/month assumption for audit config; verify before submission - https://www.anthropic.com/pricing - verified 2026-05-09
+- Max: from $100/person/month - https://www.anthropic.com/pricing - verified 2026-05-09
+- Team standard seat: $30/user/month billed monthly, $25/user/month billed annually, minimum 5 members - https://www.anthropic.com/pricing - verified 2026-05-09
 - Enterprise: custom - https://www.anthropic.com/pricing - verified 2026-05-09
 - API direct: token-priced - https://docs.anthropic.com/en/docs/about-claude/pricing - verified 2026-05-09
 
 ## ChatGPT and OpenAI
 - ChatGPT Plus: $20/user/month - https://openai.com/chatgpt/pricing - verified 2026-05-09
-- ChatGPT Team: $30/user/month assumption for audit config; verify before submission - https://openai.com/chatgpt/pricing - verified 2026-05-09
+- ChatGPT Team/Business: $30/user/month billed monthly or $25/user/month billed annually - https://openai.com/chatgpt/pricing - verified 2026-05-09
 - ChatGPT Enterprise: custom - https://openai.com/chatgpt/pricing - verified 2026-05-09
 - OpenAI API direct: token-priced - https://openai.com/api/pricing/ - verified 2026-05-09
 
 ## Gemini
-- Gemini Pro: $19.99/user/month assumption for audit config; verify before submission - https://one.google.com/about/google-ai-plans/ - verified 2026-05-09
-- Gemini Ultra: $249.99/user/month assumption for audit config; verify before submission - https://one.google.com/about/google-ai-plans/ - verified 2026-05-09
+- Google AI Pro/Gemini Pro: $19.99/month - https://one.google.com/about/google-ai-plans/ - verified 2026-05-09
+- Google AI Ultra/Gemini Ultra: $249.99/month - https://one.google.com/about/google-ai-plans/ - verified 2026-05-09
 - Gemini API: token-priced - https://ai.google.dev/gemini-api/docs/pricing - verified 2026-05-09
 
 ## v0

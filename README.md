@@ -4,6 +4,8 @@ SpendScope is a free AI spend audit for startup founders and engineering manager
 
 Live deployed URL: _add Vercel URL here after deployment_.
 
+Public GitHub repo: https://github.com/Sreeram-15/Prompt-Budget
+
 ## Screenshots
 
 - _Add screenshot: landing and form_
@@ -35,3 +37,7 @@ To deploy, create the Vercel project, add the environment variables from `.env.e
 `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `RESEND_FROM`, `ANTHROPIC_API_KEY`, and `NEXT_PUBLIC_SITE_URL`.
 
 The app runs locally without external keys using in-memory storage and a templated summary. Production should use Supabase and Resend.
+
+## Submission Notes
+
+Before submitting the Google Form, replace the screenshot placeholders, add the deployed Vercel URL, fill `USER_INTERVIEWS.md` with three real conversations, and continue honest commits across at least five distinct calendar days.

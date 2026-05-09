@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+dist
+.vercel
+.env
+.env*.local
+coverage
+.test-dist
+*.tsbuildinfo
+*.log
+*.pdf

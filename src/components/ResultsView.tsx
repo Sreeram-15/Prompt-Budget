@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { captureLead } from "@/lib/api";
 import type { AuditResult } from "@/lib/types";
 
-export default function ResultsView({ audit, publicMode = false }: { audit: AuditResult; publicMode?: boolean }) {
+export default function ResultsView({ audit }: { audit: AuditResult }) {
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [role, setRole] = useState("");
@@ -78,42 +78,40 @@ export default function ResultsView({ audit, publicMode = false }: { audit: Audi
         ))}
       </div>
 
-      {!publicMode ? (
-        <form className="lead-form" onSubmit={submitLead}>
-          <div>
-            <h3>{audit.credexQualified ? "Send me the report and consultation next steps" : "Save this audit"}</h3>
-            <p>Email capture happens after the audit, so the value is visible first.</p>
-          </div>
-          <input aria-label="Website" className="honeypot" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
-          <div className="form-row">
-            <label>
-              Email
-              <input required type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-            </label>
-            <label>
-              Company
-              <input value={companyName} onChange={(event) => setCompanyName(event.target.value)} />
-            </label>
-            <label>
-              Role
-              <input value={role} onChange={(event) => setRole(event.target.value)} />
-            </label>
-          </div>
-          {audit.credexQualified ? (
-            <label className="checkbox-line">
-              <input
-                type="checkbox"
-                checked={consultationRequested}
-                onChange={(event) => setConsultationRequested(event.target.checked)}
-              />
-              Ask Credex to follow up about discounted AI credits
-            </label>
-          ) : null}
-          <button className="primary-button" type="submit" disabled={loading || !audit.id}>{loading ? "Saving..." : "Email me the report"}</button>
-          {shareUrl ? <a className="secondary-link" href={shareUrl}>Open public report</a> : null}
-          {message ? <p className="status-message">{message}</p> : null}
-        </form>
-      ) : null}
+      <form className="lead-form" onSubmit={submitLead}>
+        <div>
+          <h3>{audit.credexQualified ? "Send me the report and consultation next steps" : "Save this audit"}</h3>
+          <p>Email capture happens after the audit, so the value is visible first.</p>
+        </div>
+        <input aria-label="Website" className="honeypot" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
+        <div className="form-row">
+          <label>
+            Email
+            <input required type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          </label>
+          <label>
+            Company
+            <input value={companyName} onChange={(event) => setCompanyName(event.target.value)} />
+          </label>
+          <label>
+            Role
+            <input value={role} onChange={(event) => setRole(event.target.value)} />
+          </label>
+        </div>
+        {audit.credexQualified ? (
+          <label className="checkbox-line">
+            <input
+              type="checkbox"
+              checked={consultationRequested}
+              onChange={(event) => setConsultationRequested(event.target.checked)}
+            />
+            Ask Credex to follow up about discounted AI credits
+          </label>
+        ) : null}
+        <button className="primary-button" type="submit" disabled={loading || !audit.id}>{loading ? "Saving..." : "Email me the report"}</button>
+        {shareUrl ? <a className="secondary-link" href={shareUrl}>Open public report</a> : null}
+        {message ? <p className="status-message">{message}</p> : null}
+      </form>
     </section>
   );
 }

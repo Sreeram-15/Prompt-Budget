@@ -19,7 +19,7 @@ flowchart TD
 
 ## Data Flow
 
-The browser stores form state in `localStorage` as the user edits it. On submit, `/api/audits` validates the payload, rate-limits the request by hashed IP key, runs deterministic audit rules, asks Anthropic for a short summary, falls back to a template on failure, and saves a public-safe audit record. The results page then offers email capture; `/api/leads` rejects honeypot submissions, rate-limits again, stores private lead fields separately, and sends a Resend confirmation email.
+The browser stores form state in `localStorage` as the user edits it and clears corrupt saved state instead of crashing the form. On submit, `/api/audits` validates the payload, rate-limits the request by hashed IP key, runs deterministic audit rules, asks Anthropic for a short summary, falls back to a template on failure, and saves a public-safe audit record. Both the immediate results page and the public share page offer email capture; `/api/leads` rejects honeypot submissions, rate-limits again, stores private lead fields and consultation intent separately, and sends a Resend confirmation email.
 
 ## Stack Choice
 

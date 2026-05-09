@@ -30,7 +30,13 @@ export default function AuditBuilder() {
 
   useEffect(() => {
     const saved = window.localStorage.getItem(storageKey);
-    if (saved) setInput(JSON.parse(saved) as AuditInput);
+    if (!saved) return;
+    try {
+      const parsed = JSON.parse(saved) as AuditInput;
+      if (Array.isArray(parsed.tools) && parsed.tools.length > 0) setInput(parsed);
+    } catch {
+      window.localStorage.removeItem(storageKey);
+    }
   }, []);
 
   useEffect(() => {

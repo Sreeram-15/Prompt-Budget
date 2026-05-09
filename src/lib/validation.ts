@@ -1,3 +1,4 @@
+import { pricingData } from "./pricing";
 import { tools, useCases, type AuditInput, type LeadInput, type ToolInput } from "./types";
 
 export function parseAuditInput(value: unknown): AuditInput {
@@ -36,10 +37,14 @@ function parseToolInput(value: unknown): ToolInput {
   const tool = value as Partial<ToolInput>;
   if (!tools.includes(tool.tool as ToolInput["tool"])) throw new Error("Choose a supported AI tool.");
   if (!tool.plan || typeof tool.plan !== "string") throw new Error("Choose a plan for every tool.");
+  const selectedTool = tool.tool as ToolInput["tool"];
+  if (!pricingData[selectedTool].some((plan) => plan.name === tool.plan)) {
+    throw new Error(`Choose a valid ${selectedTool} plan.`);
+  }
 
   return {
     id: typeof tool.id === "string" && tool.id ? tool.id : crypto.randomUUID(),
-    tool: tool.tool as ToolInput["tool"],
+    tool: selectedTool,
     plan: tool.plan,
     monthlySpend: positiveNumber(tool.monthlySpend, "monthly spend", true),
     seats: positiveNumber(tool.seats, "seats")

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { parseLeadInput } from "./validation";
+import { parseAuditInput, parseLeadInput } from "./validation";
 
 describe("parseLeadInput", () => {
   it("rejects honeypot submissions", () => {
@@ -21,5 +21,15 @@ describe("parseLeadInput", () => {
 
     assert.equal(lead.email, "founder@example.com");
     assert.equal(lead.consultationRequested, true);
+  });
+});
+
+describe("parseAuditInput", () => {
+  it("rejects invalid plan names for supported tools", () => {
+    assert.throws(() => parseAuditInput({
+      teamSize: 2,
+      useCase: "coding",
+      tools: [{ id: "bad", tool: "Cursor", plan: "Imaginary", monthlySpend: 20, seats: 1 }]
+    }), /valid Cursor plan/);
   });
 });

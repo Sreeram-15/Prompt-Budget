@@ -46,7 +46,7 @@ export default async function PublicAuditPage({ params }: Props) {
         <Link className="brand" href="/">SpendScope</Link>
         <Link className="secondary-link" href="/">Run another audit</Link>
       </nav>
-      <ResultsView audit={audit} publicMode />
+      <ResultsView audit={audit} />
     </main>
   );
 }

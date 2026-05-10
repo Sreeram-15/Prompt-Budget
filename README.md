@@ -40,6 +40,8 @@ The app runs locally without external keys using in-memory storage and a templat
 
 Run `supabase-schema.sql` before using production lead capture. The lead table stores `consultation_requested` separately from public audit data.
 
+After deployment, `/api/health` reports whether Supabase, Resend, and Anthropic keys are configured. It only returns booleans, never secret values.
+
 ## Submission Notes
 
 Before submitting the Google Form, replace the screenshot placeholders, add the deployed Vercel URL, fill `USER_INTERVIEWS.md` with three real conversations, and continue honest commits across at least five distinct calendar days.
@@ -48,4 +50,4 @@ Before submitting the Google Form, replace the screenshot placeholders, add the 
 
 Implemented locally and deployed: spend input persistence, deterministic audit engine, AI summary with fallback, post-value lead capture, Supabase/Resend adapters, rate limiting and honeypot abuse protection, public audit URLs, Open Graph image route, root documentation files, and CI.
 
-Still required before final submission: configure real Supabase/Resend/Anthropic production env vars if you want durable backend storage and transactional email, capture three screenshots or a 30-second recording from the live app, complete three real user interviews, and confirm the latest GitHub Actions run is green on `main`.
+Still required before final submission: add real Supabase/Resend/Anthropic production env vars in Vercel, capture three screenshots or a 30-second recording from the live app, complete three real user interviews, and confirm the latest GitHub Actions run is green on `main`.

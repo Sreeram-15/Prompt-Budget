@@ -27,3 +27,24 @@ create table if not exists rate_limits (
   count integer not null default 1,
   primary key (key_hash, window_start)
 );
+
+create or replace function increment_rate_limit(
+  p_key_hash text,
+  p_window_start timestamptz,
+  p_limit integer
+)
+returns boolean
+language plpgsql
+as $$
+declare
+  next_count integer;
+begin
+  insert into rate_limits (key_hash, window_start, count)
+  values (p_key_hash, p_window_start, 1)
+  on conflict (key_hash, window_start)
+  do update set count = rate_limits.count + 1
+  returning count into next_count;
+
+  return next_count <= p_limit;
+end;
+$$;

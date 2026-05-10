@@ -76,20 +76,15 @@ export async function enforceRateLimit(key: string, limit = 12, windowMs = 60_00
   const windowStart = new Date(now - (now % windowMs)).toISOString();
 
   if (hasSupabase()) {
-    const current = await supabaseFetch(
-      `/rest/v1/rate_limits?key_hash=eq.${hash}&window_start=eq.${encodeURIComponent(windowStart)}&select=count`,
-      { method: "GET" }
-    );
-    const rows = current.ok ? ((await current.json()) as Array<{ count: number }>) : [];
-    const count = rows[0]?.count ?? 0;
-    if (count >= limit) return false;
-
-    const response = await supabaseFetch("/rest/v1/rate_limits?on_conflict=key_hash,window_start", {
+    const response = await supabaseFetch("/rest/v1/rpc/increment_rate_limit", {
       method: "POST",
-      body: JSON.stringify({ key_hash: hash, window_start: windowStart, count: count + 1 }),
-      headers: { Prefer: "resolution=merge-duplicates,return=minimal" }
+      body: JSON.stringify({
+        p_key_hash: hash,
+        p_window_start: windowStart,
+        p_limit: limit
+      })
     });
-    return response.ok;
+    return response.ok ? Boolean(await response.json()) : false;
   }
 
   const existing = memoryLimits.get(hash);

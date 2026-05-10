@@ -66,7 +66,11 @@ function evaluateTool(tool: ToolInput, input: AuditInput, duplicateCodingTools: 
       if (cheaperCost !== null && cheaperCost + 1 < currentSpend && cheaperPlan.name !== tool.plan) {
         recommendedSpend = cheaperCost;
         action = "downgrade";
-        reason = `${cheaperPlan.name} covers this seat count at lower published pricing than the current ${tool.plan} spend.`;
+        const selectedPlan = pricingData[tool.tool].find((plan) => plan.name === tool.plan);
+        const minimumSeatNote = selectedPlan?.minimumSeats && selectedPlan.minimumSeats > seats
+          ? ` The current plan has a ${selectedPlan.minimumSeats}-seat billing floor, which is wasteful for ${seats} seat${seats === 1 ? "" : "s"}.`
+          : "";
+        reason = `${cheaperPlan.name} covers this seat count at lower published pricing than the current ${tool.plan} spend.${minimumSeatNote}`;
       }
     }
   }

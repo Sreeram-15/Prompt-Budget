@@ -99,14 +99,17 @@ export default function ResultsView({ audit }: { audit: AuditResult }) {
           </label>
         </div>
         {audit.credexQualified ? (
-          <label className="checkbox-line">
-            <input
-              type="checkbox"
-              checked={consultationRequested}
-              onChange={(event) => setConsultationRequested(event.target.checked)}
-            />
-            Ask Credex to follow up about discounted AI credits
-          </label>
+          <div className="consultation-box">
+            <label className="checkbox-line">
+              <input
+                type="checkbox"
+                checked={consultationRequested}
+                onChange={(event) => setConsultationRequested(event.target.checked)}
+              />
+              Ask Credex to follow up about discounted AI credits
+            </label>
+            <p>High-savings audits are routed as consultation requests after you save the report.</p>
+          </div>
         ) : null}
         <button className="primary-button" type="submit" disabled={loading || !audit.id}>{loading ? "Saving..." : "Email me the report"}</button>
         {shareUrl ? <a className="secondary-link" href={shareUrl}>Open public report</a> : null}

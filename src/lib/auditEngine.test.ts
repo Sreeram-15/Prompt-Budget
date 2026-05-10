@@ -85,4 +85,17 @@ describe("runAudit", () => {
     assert.ok(result.results[0].monthlySavings <= 320);
     assert.ok(result.results[0].recommendedSpend >= 0);
   });
+
+  it("accounts for published minimum seats when downgrading small teams", () => {
+    const result = runAudit(audit({
+      teamSize: 2,
+      useCase: "writing",
+      tools: [{ id: "claude", tool: "Claude", plan: "Team", monthlySpend: 150, seats: 2 }]
+    }));
+
+    assert.equal(result.results[0].recommendedAction, "downgrade");
+    assert.equal(result.results[0].recommendedSpend, 40);
+    assert.equal(result.results[0].monthlySavings, 110);
+    assert.match(result.results[0].reason, /5-seat billing floor/);
+  });
 });

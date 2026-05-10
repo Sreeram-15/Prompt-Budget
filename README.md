@@ -8,9 +8,9 @@ Public GitHub repo: https://github.com/Sreeram-15/Prompt-Budget
 
 ## Screenshots
 
-- _Add screenshot: landing and form_
-- _Add screenshot: audit results_
-- _Add screenshot: public share page_
+- Landing and form: _capture from deployed URL before submission_
+- Audit results: _capture from deployed URL before submission_
+- Public share page / Open Graph preview: _capture from deployed URL before submission_
 
 ## Quick Start
 
@@ -43,3 +43,9 @@ Run `supabase-schema.sql` before using production lead capture. The lead table s
 ## Submission Notes
 
 Before submitting the Google Form, replace the screenshot placeholders, add the deployed Vercel URL, fill `USER_INTERVIEWS.md` with three real conversations, and continue honest commits across at least five distinct calendar days.
+
+## Assignment Readiness
+
+Implemented locally: spend input persistence, deterministic audit engine, AI summary with fallback, post-value lead capture, Supabase/Resend adapters, rate limiting and honeypot abuse protection, public audit URLs, Open Graph image route, root documentation files, and CI.
+
+Still required before final submission: deploy publicly, add the deployed URL above, capture three screenshots or a 30-second recording from the live app, complete three real user interviews, and confirm the latest GitHub Actions run is green on `main`.

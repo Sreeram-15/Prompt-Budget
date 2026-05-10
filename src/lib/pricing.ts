@@ -4,6 +4,7 @@ export type PlanPrice = {
   name: string;
   monthlyPerSeat?: number;
   monthlyFlat?: number;
+  minimumSeats?: number;
   custom?: boolean;
   source: string;
 };
@@ -24,7 +25,7 @@ export const pricingData: Record<ToolName, PlanPrice[]> = {
     { name: "Free", monthlyFlat: 0, source: "https://www.anthropic.com/pricing" },
     { name: "Pro", monthlyPerSeat: 20, source: "https://www.anthropic.com/pricing" },
     { name: "Max", monthlyPerSeat: 100, source: "https://www.anthropic.com/pricing" },
-    { name: "Team", monthlyPerSeat: 30, source: "https://www.anthropic.com/pricing" },
+    { name: "Team", monthlyPerSeat: 30, minimumSeats: 5, source: "https://www.anthropic.com/pricing" },
     { name: "Enterprise", custom: true, source: "https://www.anthropic.com/pricing" },
     { name: "API direct", custom: true, source: "https://docs.anthropic.com/en/docs/about-claude/pricing" }
   ],
@@ -57,7 +58,7 @@ export const pricingData: Record<ToolName, PlanPrice[]> = {
 export function planCost(tool: ToolName, planName: string, seats: number): number | null {
   const plan = pricingData[tool].find((item) => item.name.toLowerCase() === planName.toLowerCase());
   if (!plan || plan.custom) return null;
-  return Math.round(((plan.monthlyFlat ?? 0) + (plan.monthlyPerSeat ?? 0) * seats) * 100) / 100;
+  return planValue(plan, seats);
 }
 
 export function cheapestSameVendorPlan(tool: ToolName, seats: number, allowTeam = false): PlanPrice | undefined {
@@ -69,5 +70,6 @@ export function cheapestSameVendorPlan(tool: ToolName, seats: number, allowTeam 
 }
 
 function planValue(plan: PlanPrice, seats: number): number {
-  return (plan.monthlyFlat ?? 0) + (plan.monthlyPerSeat ?? 0) * seats;
+  const billableSeats = Math.max(seats, plan.minimumSeats ?? 0);
+  return Math.round(((plan.monthlyFlat ?? 0) + (plan.monthlyPerSeat ?? 0) * billableSeats) * 100) / 100;
 }

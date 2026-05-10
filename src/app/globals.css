@@ -310,6 +310,21 @@ button:disabled {
   gap: 16px;
 }
 
+.consultation-box {
+  background: #f1f8f4;
+  border: 1px solid #c9ddd2;
+  border-radius: 8px;
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+}
+
+.consultation-box p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+}
+
 .honeypot {
   left: -9999px;
   position: absolute;

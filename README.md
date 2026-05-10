@@ -2,7 +2,7 @@
 
 SpendScope is a free AI spend audit for startup founders and engineering managers who want a second opinion before paying another AI tools invoice. It accepts current tools, plans, seats, team size, and use case, then returns immediate savings recommendations and a shareable public report.
 
-Live deployed URL: _add Vercel URL here after deployment_.
+Live deployed URL: https://spendscope-ten.vercel.app
 
 Public GitHub repo: https://github.com/Sreeram-15/Prompt-Budget
 
@@ -46,6 +46,6 @@ Before submitting the Google Form, replace the screenshot placeholders, add the 
 
 ## Assignment Readiness
 
-Implemented locally: spend input persistence, deterministic audit engine, AI summary with fallback, post-value lead capture, Supabase/Resend adapters, rate limiting and honeypot abuse protection, public audit URLs, Open Graph image route, root documentation files, and CI.
+Implemented locally and deployed: spend input persistence, deterministic audit engine, AI summary with fallback, post-value lead capture, Supabase/Resend adapters, rate limiting and honeypot abuse protection, public audit URLs, Open Graph image route, root documentation files, and CI.
 
-Still required before final submission: deploy publicly, add the deployed URL above, capture three screenshots or a 30-second recording from the live app, complete three real user interviews, and confirm the latest GitHub Actions run is green on `main`.
+Still required before final submission: configure real Supabase/Resend/Anthropic production env vars if you want durable backend storage and transactional email, capture three screenshots or a 30-second recording from the live app, complete three real user interviews, and confirm the latest GitHub Actions run is green on `main`.

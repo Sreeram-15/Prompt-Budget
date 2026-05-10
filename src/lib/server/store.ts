@@ -6,8 +6,8 @@ const memoryLeads: LeadInput[] = [];
 const memoryLimits = new Map<string, { count: number; resetAt: number }>();
 
 export async function saveAudit(audit: AuditResult): Promise<AuditResult> {
-  const id = crypto.randomUUID();
   const createdAt = new Date().toISOString();
+  const id = crypto.randomUUID();
   const record = { ...audit, id, createdAt };
 
   if (hasSupabase()) {
@@ -28,7 +28,10 @@ export async function saveAudit(audit: AuditResult): Promise<AuditResult> {
     });
     if (!response.ok) throw new Error("Could not save audit.");
   } else {
-    memoryAudits.set(id, stripPublicAudit(record));
+    const publicRecord = stripPublicAudit(record);
+    publicRecord.id = encodePublicAudit(publicRecord);
+    memoryAudits.set(publicRecord.id, publicRecord);
+    return publicRecord;
   }
 
   return record;
@@ -44,7 +47,7 @@ export async function getPublicAudit(id: string): Promise<AuditResult | null> {
     return rows[0]?.audit_result ?? null;
   }
 
-  return memoryAudits.get(id) ?? null;
+  return memoryAudits.get(id) ?? decodePublicAudit(id);
 }
 
 export async function saveLead(lead: LeadInput): Promise<void> {
@@ -133,4 +136,25 @@ async function sha256(value: string): Promise<string> {
   return Array.from(new Uint8Array(digest))
     .map((byte) => byte.toString(16).padStart(2, "0"))
     .join("");
+}
+
+function encodePublicAudit(audit: AuditResult): string {
+  const json = JSON.stringify({ ...audit, id: undefined });
+  const bytes = new TextEncoder().encode(json);
+  const binary = Array.from(bytes, (byte) => String.fromCharCode(byte)).join("");
+  return `r_${btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "")}`;
+}
+
+function decodePublicAudit(id: string): AuditResult | null {
+  if (!id.startsWith("r_")) return null;
+
+  try {
+    const padded = id.slice(2).replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil((id.length - 2) / 4) * 4, "=");
+    const binary = atob(padded);
+    const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+    const audit = JSON.parse(new TextDecoder().decode(bytes)) as AuditResult;
+    return { ...audit, id };
+  } catch {
+    return null;
+  }
 }

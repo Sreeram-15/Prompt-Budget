@@ -8,11 +8,11 @@
 **Plan for tomorrow:** Wire production env vars, deploy, capture screenshots, and expand polish after real user feedback.
 
 ## Day 2 - 2026-05-10
-**Hours worked:** 0  
-**What I did:** Planned pricing verification and interview outreach.  
-**What I learned:** No new implementation work.  
-**Blockers / what I'm stuck on:** Waiting on interview availability.  
-**Plan for tomorrow:** Interview first founder and update recommendation wording.
+**Hours worked:** 1
+**What I did:** Re-ran lint, unit tests, and the production Next.js build; reviewed the remaining submission checklist and kept deployment/interview placeholders honest.
+**What I learned:** The local app is buildable without production credentials because storage, email, and LLM integrations have local fallbacks or isolated adapters.
+**Blockers / what I'm stuck on:** Still need real Supabase, Resend, Anthropic, Vercel deployment, screenshots, and founder interview notes before final submission.
+**Plan for tomorrow:** Deploy with production env vars, capture screenshots, and interview the first founder.
 
 ## Day 3 - 2026-05-11
 **Hours worked:** 0  

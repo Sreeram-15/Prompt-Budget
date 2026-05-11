@@ -48,6 +48,6 @@ After deployment, `/api/health` reports whether Supabase, Resend, and Anthropic 
 
 Implemented locally and deployed: spend input persistence, deterministic audit engine, AI summary with fallback, post-value lead capture, Supabase/Resend adapters, rate limiting and honeypot abuse protection, public audit URLs, Open Graph image route, root documentation files, and CI.
 
-Verified on 2026-05-11: the public repo is reachable, the Vercel deployment returns `200 OK`, `/api/health` reports Supabase, Resend, and Anthropic configured, a deployed audit can be created, the public report renders expected savings content, the Open Graph endpoint returns a PNG, GitHub Actions CI is green on the latest commit, and local lint, tests, and production build pass.
+Verified on 2026-05-11: the public repo is reachable, the Vercel deployment returns `200 OK`, `/api/health` reports Supabase, Resend, and Anthropic configured, a deployed audit can be created, the public report renders expected savings content, the "Email me the report" backend path returns success, the Open Graph endpoint returns a PNG, GitHub Actions CI is green on the latest commit, and local lint, tests, and production build pass.
 
 Known limitation: real user interviews were not completed before this checkpoint; `USER_INTERVIEWS.md` documents that honestly.

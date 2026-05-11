@@ -34,3 +34,4 @@ CI runs lint and tests in `.github/workflows/ci.yml`.
 - `POST https://spendscope-ten.vercel.app/api/audits` - created audit `3eb53f7c-76e6-4c3b-a4b3-8b6c58012260` with `$312` monthly savings on 2026-05-11.
 - `GET /audit/3eb53f7c-76e6-4c3b-a4b3-8b6c58012260` - returned `200 OK` and included expected Cursor/GitHub Copilot recommendations.
 - `GET /api/og/3eb53f7c-76e6-4c3b-a4b3-8b6c58012260` - returned `200 OK` with `Content-Type: image/png`.
+- `POST /api/leads` for audit `3eb53f7c-76e6-4c3b-a4b3-8b6c58012260` - returned `{ "ok": true }`, confirming the backend path for "Email me the report" on 2026-05-11.

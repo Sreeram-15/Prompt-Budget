@@ -10,6 +10,8 @@ Public GitHub repo: https://github.com/Sreeram-15/Prompt-Budget
 
 - Landing and form: https://spendscope-ten.vercel.app
 - Health check: https://spendscope-ten.vercel.app/api/health
+- Verified public report: https://spendscope-ten.vercel.app/audit/3eb53f7c-76e6-4c3b-a4b3-8b6c58012260
+- Verified Open Graph image: https://spendscope-ten.vercel.app/api/og/3eb53f7c-76e6-4c3b-a4b3-8b6c58012260
 - Public GitHub repo: https://github.com/Sreeram-15/Prompt-Budget
 
 ## Quick Start
@@ -46,6 +48,6 @@ After deployment, `/api/health` reports whether Supabase, Resend, and Anthropic 
 
 Implemented locally and deployed: spend input persistence, deterministic audit engine, AI summary with fallback, post-value lead capture, Supabase/Resend adapters, rate limiting and honeypot abuse protection, public audit URLs, Open Graph image route, root documentation files, and CI.
 
-Verified on 2026-05-11: the public repo is reachable, the Vercel deployment returns `200 OK`, `/api/health` reports Supabase, Resend, and Anthropic configured, GitHub Actions CI is green on the latest commit, and local lint, tests, and production build pass.
+Verified on 2026-05-11: the public repo is reachable, the Vercel deployment returns `200 OK`, `/api/health` reports Supabase, Resend, and Anthropic configured, a deployed audit can be created, the public report renders expected savings content, the Open Graph endpoint returns a PNG, GitHub Actions CI is green on the latest commit, and local lint, tests, and production build pass.
 
 Known limitation: real user interviews were not completed before this checkpoint; `USER_INTERVIEWS.md` documents that honestly.

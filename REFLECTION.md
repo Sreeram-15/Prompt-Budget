@@ -30,7 +30,7 @@ Discipline: 7/10 - the repo has the required structure, tests, CI, and devlog fo
 
 Code quality: 8/10 - the core audit path is typed, covered by focused tests, and split into small modules for pricing, validation, audit math, persistence, email, and summary generation. The main remaining engineering risk is production hardening around rate-limit atomicity and deployed observability.
 
-Design sense: 7/10 - the UI is clear, responsive, and oriented around the savings result rather than decorative marketing, but it still needs live screenshots and visual QA on the deployed URL before I would call it polished enough for launch.
+Design sense: 7/10 - the UI is clear, responsive, and oriented around the savings result rather than decorative marketing. I verified the deployed landing page, public report route, and Open Graph endpoint from production, but I would still want manual browser screenshots across mobile and desktop before calling the design polished enough for launch.
 
 Problem-solving: 8/10 - the strongest technical choices were separating deterministic math from LLM prose, storing public-safe audits separately from private leads, and refusing to invent savings when data is missing. Those choices make the app more trustworthy even if they reduce flashiness.
 

@@ -26,3 +26,11 @@ CI runs lint and tests in `.github/workflows/ci.yml`.
 ## Latest CI Verification
 
 - GitHub Actions workflow `CI` is configured in `.github/workflows/ci.yml` and was green when checked on 2026-05-11.
+
+## Deployed Smoke Test
+
+- `GET https://spendscope-ten.vercel.app` - returned `200 OK` on 2026-05-11.
+- `GET https://spendscope-ten.vercel.app/api/health` - returned `ok: true` with Supabase, Resend, and Anthropic configured on 2026-05-11.
+- `POST https://spendscope-ten.vercel.app/api/audits` - created audit `3eb53f7c-76e6-4c3b-a4b3-8b6c58012260` with `$312` monthly savings on 2026-05-11.
+- `GET /audit/3eb53f7c-76e6-4c3b-a4b3-8b6c58012260` - returned `200 OK` and included expected Cursor/GitHub Copilot recommendations.
+- `GET /api/og/3eb53f7c-76e6-4c3b-a4b3-8b6c58012260` - returned `200 OK` with `Content-Type: image/png`.

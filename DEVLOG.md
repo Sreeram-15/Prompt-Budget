@@ -16,7 +16,7 @@
 
 ## Day 3 - 2026-05-11
 **Hours worked:** 1
-**What I did:** Verified the public GitHub repo, Vercel deployment, `/api/health`, required root files, CI status, local lint, local tests, and production build. Cleaned stale template language from the submission docs.
-**What I learned:** The production integration check is useful because it confirms the deployed app can see Supabase, Resend, Anthropic, and the configured site URL without exposing secrets.
+**What I did:** Verified the public GitHub repo, Vercel deployment, `/api/health`, required root files, CI status, local lint, local tests, and production build. Created a deployed QA audit, checked the public report route, and verified the Open Graph PNG endpoint. Cleaned stale template language from the submission docs.
+**What I learned:** The production integration check is useful because it confirms the deployed app can see Supabase, Resend, Anthropic, and the configured site URL without exposing secrets. The public report smoke test also proved that saved audits can be shared after submission.
 **Blockers / what I'm stuck on:** Real user interviews were not completed, so `USER_INTERVIEWS.md` states that directly instead of inventing research.
 **Plan for tomorrow:** If more time is available, complete real interviews and replace the not-completed notes with actual findings.

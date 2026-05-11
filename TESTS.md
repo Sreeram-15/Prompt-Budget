@@ -19,6 +19,10 @@ CI runs lint and tests in `.github/workflows/ci.yml`.
 
 ## Latest Local Verification
 
-- `npm.cmd run lint` - passed on 2026-05-10.
-- `npm.cmd run test` - 17 tests passed on 2026-05-10.
-- `npm.cmd run build` - production Next.js build passed on 2026-05-10.
+- `npm.cmd run lint` - passed on 2026-05-11.
+- `npm.cmd test` - 17 tests passed on 2026-05-11.
+- `npm.cmd run build` - production Next.js build passed on 2026-05-11.
+
+## Latest CI Verification
+
+- GitHub Actions workflow `CI` is configured in `.github/workflows/ci.yml` and was green when checked on 2026-05-11.

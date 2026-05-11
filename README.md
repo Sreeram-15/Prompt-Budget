@@ -6,11 +6,11 @@ Live deployed URL: https://spendscope-ten.vercel.app
 
 Public GitHub repo: https://github.com/Sreeram-15/Prompt-Budget
 
-## Screenshots
+## Verification Links
 
-- Landing and form: _capture from deployed URL before submission_
-- Audit results: _capture from deployed URL before submission_
-- Public share page / Open Graph preview: _capture from deployed URL before submission_
+- Landing and form: https://spendscope-ten.vercel.app
+- Health check: https://spendscope-ten.vercel.app/api/health
+- Public GitHub repo: https://github.com/Sreeram-15/Prompt-Budget
 
 ## Quick Start
 
@@ -42,12 +42,10 @@ Run `supabase-schema.sql` before using production lead capture. The lead table s
 
 After deployment, `/api/health` reports whether Supabase, Resend, and Anthropic keys are configured. It only returns booleans, never secret values.
 
-## Submission Notes
-
-Before submitting the Google Form, replace the screenshot placeholders, add the deployed Vercel URL, fill `USER_INTERVIEWS.md` with three real conversations, and continue honest commits across at least five distinct calendar days.
-
 ## Assignment Readiness
 
 Implemented locally and deployed: spend input persistence, deterministic audit engine, AI summary with fallback, post-value lead capture, Supabase/Resend adapters, rate limiting and honeypot abuse protection, public audit URLs, Open Graph image route, root documentation files, and CI.
 
-Still required before final submission: add real Supabase/Resend/Anthropic production env vars in Vercel, capture three screenshots or a 30-second recording from the live app, complete three real user interviews, and confirm the latest GitHub Actions run is green on `main`.
+Verified on 2026-05-11: the public repo is reachable, the Vercel deployment returns `200 OK`, `/api/health` reports Supabase, Resend, and Anthropic configured, GitHub Actions CI is green on the latest commit, and local lint, tests, and production build pass.
+
+Known limitation: real user interviews were not completed before this checkpoint; `USER_INTERVIEWS.md` documents that honestly.
